@@ -59,7 +59,7 @@ export const editTicket = (ticket) => {
     }
 }
 
-export const startEditTicket = (formData, props) => {
+export const startEditTicket = (formData, props) => {    
     return (dispatch) => {
         axios.put(`/tickets/${props.match.params.id}`, formData, {
             headers: {

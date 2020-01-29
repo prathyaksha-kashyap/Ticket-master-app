@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator= require('validator')
 
 const Schema = mongoose.Schema
 const employeeSchema = new Schema({
@@ -8,7 +9,15 @@ const employeeSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        validate:{
+            validator:function (value){
+                return validator.isEmail(value)
+            },
+            message:function (){
+                return 'invalid email format'
+            }
+        }
     },
     mobile: {
         type: String,
